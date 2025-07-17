@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест новостной ленты | Independent Clone</title>
+    <meta name="description" content="Тестовая страница для проверки загрузки новостей">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main class="main-content">
+        <div class="container">
+            <h1>Тест новостной ленты</h1>
+            
+            <!-- News Feed Section -->
+            <section class="news-container">
+                <!-- Category Navigation -->
+                <div class="news-categories">
+                    <button class="category-btn active" data-category="general">Главные новости</button>
+                    <button class="category-btn" data-category="business">Бизнес</button>
+                    <button class="category-btn" data-category="technology">Технологии</button>
+                    <button class="category-btn" data-category="sports">Спорт</button>
+                    <button class="category-btn" data-category="entertainment">Развлечения</button>
+                    <button class="category-btn" data-category="science">Наука</button>
+                    <button class="category-btn" data-category="health">Здоровье</button>
+                </div>
+                
+                <!-- News Grid will be populated by JavaScript -->
+                <div class="news-grid">
+                    <!-- News articles will be inserted here by JavaScript -->
+                </div>
+                
+                <!-- Loading Indicator -->
+                <div class="loading-indicator" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> Загрузка новостей...
+                </div>
+                
+                <!-- Error Container -->
+                <div class="error-container" style="display: none;"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/news-loader.js"></script>
+</body>
+</html>

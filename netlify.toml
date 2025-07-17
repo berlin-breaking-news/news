@@ -1,0 +1,11 @@
+[build]
+  command = "jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  NODE_VERSION = "20"
+  RUBY_VERSION = "3.2.2"
+
+[context.production.environment]
+  JEKYLL_ENV = "production"

@@ -2,15 +2,11 @@ import os
 import re
 
 # Define the directory to search in (project root)
-project_root = '/Users/konstantinputincev/CascadeProjects/independent-clone'
+project_root = '/Users/konstantinputincev/CascadeProjects/pravda-news'
 
 # Define the patterns to replace
 replacements = {
-    '../../politika.html': '../politika.html',
-    '../../mir.html': '../mir.html',
-    '../../sport.html': '../sport.html',
-    '../../kultura.html': '../kultura.html',
-    '../../tehnologii.html': '../tehnologii.html'
+    '../../': '../',
 }
 
 # Compile a regex pattern to find all the target patterns

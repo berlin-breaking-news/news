@@ -217,6 +217,90 @@ function initMobileMenu() {
     }
 }
 
+articles_list_json = `
+[
+  {
+    "url": "articles/alex-lesly-zaderjanie.html",
+    "title": "Алекс Лесли задержан",
+    "description": "Александр Кириллов (Алекс Лесли) стал фигурантом уголовного дела, возбужденного Следственным комитетом по Москве. Его подозревают в склонении к изнасилованию.",
+    "date": "17 июля 2025",
+    "tags": ["общество", "пикап", "криминал", "Алекс Лесли"]
+  },
+
+  {
+    "url": "articles/budushchee-energetiki-perehod-k-vozobnovlyaemym-istochnikam.html",
+    "title": "Будущее энергетики: переход к возобновляемым источникам",
+    "description": "Анализ перспектив перехода на возобновляемые источники энергии и их влияние на экономику и экологию.",
+    "date": "17 июля 2025",
+    "tags": ["энергетика", "экология", "технологии"]
+  },
+  {
+    "url": "articles/eksklyuzivnoe-intervyu-s-laureatom-nobelevskoy-premii.html",
+    "title": "Эксклюзивное интервью с лауреатом Нобелевской премии",
+    "description": "Беседа с выдающимся ученым о его открытиях и их значении для современной науки.",
+    "date": "16 июля 2025",
+    "tags": ["наука", "интервью", "нобелевская премия"]
+  },
+  {
+    "url": "articles/inflyaciya-i-ee-vliyanie-na-povsednevnuyu-zhizn-grazhdan.html",
+    "title": "Инфляция и ее влияние на повседневную жизнь граждан",
+    "description": "Подробный разбор экономической ситуации и прогнозы на ближайшее будущее.",
+    "date": "17 июля 2025",
+    "tags": ["экономика", "инфляция", "финансы"]
+  },
+  {
+    "url": "articles/iskusstvennyy-intellekt-vozmozhnosti-i-riski.html",
+    "title": "Искусственный интеллект: возможности и риски",
+    "description": "Взгляд эксперта на развитие ИИ и его влияние на различные сферы жизни.",
+    "date": "17 июля 2025",
+    "tags": ["искусственный интеллект", "технологии", "будущее"]
+  },
+  {
+    "url": "articles/kak-izmenilas-zhizn-posle-pandemii.html",
+    "title": "Как изменилась жизнь людей после пандемии: большое исследование",
+    "description": "Подробный анализ социальных и экономических последствий пандемии на основе опроса тысяч респондентов.",
+    "date": "16 июля 2025",
+    "tags": ["пандемия", "исследование", "общество"]
+  },
+  {
+    "url": "articles/krupneyshaya-it-kompaniya-obyavila-o-novyh-investiciyah.html",
+    "title": "Крупнейшая IT-компания объявила о новых инвестициях в искусственный интеллект",
+    "description": "Ведущая технологическая компания объявила о масштабных инвестициях в развитие искусственного интеллекта и машинного обучения.",
+    "date": "15 июля 2025",
+    "tags": ["технологии", "искусственный интеллект", "инвестиции"]
+  },
+  {
+    "url": "articles/novyy-film-rossiyskogo-rezhissera-poluchil-priznanie.html",
+    "title": "Новый фильм российского режиссера получил признание на международном кинофестивале",
+    "description": "Кинолента удостоилась специального приза жюри и восторженных отзывов критиков.",
+    "date": "16 июля 2025",
+    "tags": ["кино", "культура", "фестиваль"]
+  },
+  {
+    "url": "articles/pochemu-novye-reformy-mogut-izmenit-politicheskiy-landshaft.html",
+    "title": "Почему новые реформы могут изменить политический ландшафт",
+    "description": "Анализ последних политических изменений и их влияние на будущее страны.",
+    "date": "16 июля 2025",
+    "tags": ["политика", "реформы", "аналитика"]
+  },
+  {
+    "url": "articles/sbornaya-strany-gotovitsya-k-chempionatu-mira.html",
+    "title": "Сборная страны готовится к чемпионату мира по футболу",
+    "description": "Тренерский штаб объявил расширенный состав на предстоящий турнир.",
+    "date": "15 июля 2025",
+    "tags": ["футбол", "спорт", "чемпионат мира"]
+  },
+  {
+    "url": "articles/uchenye-otkryli-novyy-metod-lecheniya-raka.html",
+    "title": "Ученые открыли новый метод лечения рака",
+    "description": "Исследователи представили революционный подход к терапии онкологических заболеваний.",
+    "date": "14 июля 2025",
+    "tags": ["медицина", "рак", "исследование"]
+  }
+]
+
+`
+
 // Article data cache
 let articleCache = [];
 let isCacheLoaded = false;
@@ -225,16 +309,19 @@ let isCacheLoaded = false;
 async function loadArticles() {
     if (isCacheLoaded) return articleCache;
     
-    try {
-        const response = await fetch('/pages/articles-list.json');
-        if (!response.ok) throw new Error('Failed to load articles');
-        articleCache = await response.json();
-        isCacheLoaded = true;
-        return articleCache;
-    } catch (error) {
-        console.error('Error loading articles:', error);
-        return [];
-    }
+    // try {
+    //     const response = articles_list_json; //await fetch('../../pages/articles-list.json');
+    //     if (!response.ok) throw new Error('Failed to load articles');
+    //     articleCache = await response.json();
+    //     isCacheLoaded = true;
+    //     return articleCache;
+    // } catch (error) {
+    //     console.error('Error loading articles:', error);
+    //     return [];
+    // }
+    articleCache = JSON.parse(articles_list_json);
+    isCacheLoaded = true;
+    return articleCache;
 }
 
 // Search articles
@@ -260,6 +347,20 @@ async function searchArticles(query) {
     });
 }
 
+function trimToLastChar(str, char) {
+    const lastIndex = str.lastIndexOf(char);
+    if (lastIndex === -1) {
+        return str;
+    }
+    return str.slice(0, lastIndex);
+}
+
+// const str = "example.com/path/to/file";
+// const char = "/";
+// const result = trimToLastChar(str, char);
+// console.log(result); // "example.com/path/to"
+
+
 // Render search results
 function renderResults(results, container) {
     if (!results || results.length === 0) {
@@ -273,15 +374,17 @@ function renderResults(results, container) {
         if (url.startsWith('http') || url.startsWith('//') || url.startsWith('www')) {
             return url;
         }
+        start_url = trimToLastChar(document.URL, "/")
+        start_url = trimToLastChar(start_url, "/articles")
         // If the URL starts with ./, remove the leading .
         if (url.startsWith('./')) {
-            return url.substring(1);
+            return start_url + url.substring(1);
         }
         // If the URL doesn't start with /, add it
         if (!url.startsWith('/')) {
-            return '/' + url;
+            return start_url + '/' + url;
         }
-        return url;
+        return start_url + url;
     };
     
     const resultsHtml = results.map(article => {
